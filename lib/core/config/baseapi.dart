@@ -6,16 +6,18 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../api/api_const.dart';
+
 class BaseApi {
   late Dio dio;
-
+  String path = ApiConstants.BASE_URL;
   BaseApi() {
     final options = BaseOptions(
-        baseUrl: 'BASE_URL',
-        receiveDataWhenStatusError: true,
-        connectTimeout: 60 * 1000, // 60 seconds
-        receiveTimeout: 60 * 1000, // 60 seconds
-        );
+      baseUrl: path,
+      receiveDataWhenStatusError: true,
+      connectTimeout: 60 * 1000, // 60 seconds
+      receiveTimeout: 60 * 1000, // 60 seconds
+    );
     dio = Dio(options);
     if (kDebugMode) {
       dio.interceptors.add(
