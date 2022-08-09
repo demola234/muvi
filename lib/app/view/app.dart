@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import '../../features/home/presentation/presentation.dart';
+import '../../features/movies/presentation/presentation.dart';
 import '../../l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -20,7 +20,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const Home(),
+      home: const Movies(),
     );
   }
 }
