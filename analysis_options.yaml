@@ -2,3 +2,11 @@
 linter:
   rules:
     # public_member_api_docs: true
+
+
+analyzer:
+  exclude:
+   - '**/*.g.dart'
+   - '**/*.freezed.dart'
+  errors:
+    invalid_annotation_target: ignore
