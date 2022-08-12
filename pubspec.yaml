@@ -29,7 +29,7 @@ dependencies:
 
 dev_dependencies:
   bloc_test: ^9.0.3
-  build_runner: null
+  build_runner: any
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
@@ -42,3 +42,7 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/images/
+    - assets/jsons/
+    - assets/icons/
