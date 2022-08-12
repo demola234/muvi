@@ -10,7 +10,7 @@ class MoviesRemoteDataSourceImp extends BaseApi
 
   @override
   Future<List<MovieDto>> getAllNowPlayingMovies(int page) async {
-    var data = await get('/movie/now_playing', query: {
+    var data = await get('movie/now_playing', query: {
       'language': 'en-US',
       'api_key': api_key,
     });
@@ -19,7 +19,7 @@ class MoviesRemoteDataSourceImp extends BaseApi
 
   @override
   Future<List<MovieDto>> getAllPopularMovies() async {
-    var data = await get('/movie/popular', query: {
+    var data = await get('movie/popular', query: {
       'language': 'en-US',
       'api_key': api_key,
     });
@@ -28,7 +28,7 @@ class MoviesRemoteDataSourceImp extends BaseApi
 
   @override
   Future<List<MovieDto>> getPlayingNow() async {
-    var data = await get('/movie/upcoming', query: {
+    var data = await get('movie/upcoming', query: {
       'language': 'en-US',
       'api_key': api_key,
     });
@@ -37,7 +37,7 @@ class MoviesRemoteDataSourceImp extends BaseApi
 
   @override
   Future<List<MovieDto>> getTrending() async {
-    var data = await get('/trending/all/day', query: {
+    var data = await get('trending/all/day', query: {
       'api_key': api_key,
     });
     print(data['results']);

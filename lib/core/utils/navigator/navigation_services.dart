@@ -39,7 +39,6 @@ class NavigationService {
   /// Allows you to pop to the first screen to when the app [popToFirst] first launched.
   /// This is useful when you need to log out a user,
   /// and also remove all the screens on the navigation stack.
-  /// I find this very useful
   void popToFirst() =>
       navigationKey.currentState?.popUntil((route) => route.isFirst);
 }

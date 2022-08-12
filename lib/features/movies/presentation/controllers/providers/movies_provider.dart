@@ -6,7 +6,22 @@ import 'package:moviex/features/movies/presentation/controllers/states/movie_sta
 
 var movieRepository = sl<MovieRepository>();
 
-final movieNotifierProvider =
-    StateNotifierProvider<MovieNotifier, MovieListState>(
-  (ref) => MovieNotifier(movieRepository),
+final movieTrendingNotifierProvider =
+    StateNotifierProvider<MovieTrendingNotifier, MovieListState>(
+  (ref) => MovieTrendingNotifier(movieRepository),
+);
+
+final movieAllNowPlayingNotifier =
+    StateNotifierProvider<MovieAllNowPlayingNotifier, MovieListState>(
+  (ref) => MovieAllNowPlayingNotifier(movieRepository),
+);
+
+final movieAllPopularNotifier =
+    StateNotifierProvider<MovieAllPopularNotifier, MovieListState>(
+  (ref) => MovieAllPopularNotifier(movieRepository),
+);
+
+final moviePlayNowNotifier =
+    StateNotifierProvider<MoviePlayNowNotifier, MovieListState>(
+  (ref) => MoviePlayNowNotifier(movieRepository),
 );
