@@ -9,6 +9,7 @@ environment:
 dependencies:
   antdesign_icons: ^0.0.3
   bloc: ^8.0.3
+  cached_network_image: ^3.2.1
   custom_navigation_bar: ^0.8.2
   dartz: ^0.10.1
   dio: ^4.0.6

@@ -13,4 +13,6 @@ class MuviAssets {
   static String video = '$_iconDir/video-playing.svg';
   static String shape = '$_iconDir/shape.svg';
   static String ticket = '$_iconDir/ticket.svg';
+  static String play = '$_iconDir/play.svg';
+  static String plus = '$_iconDir/Plus.svg';
 }

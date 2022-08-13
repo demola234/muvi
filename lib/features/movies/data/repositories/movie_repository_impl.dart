@@ -1,4 +1,5 @@
 import 'package:moviex/core/error/exceptions.dart';
+import 'package:moviex/features/movies/domain/entities/movie_details_entity.dart';
 import 'package:moviex/features/movies/domain/entities/movies_result.dart';
 import 'package:moviex/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
@@ -46,6 +47,18 @@ class MovieRepositoryImp implements MovieRepository {
   Future<Either<Failure, List<MovieEntity>>> getTrending() async {
     try {
       final response = await remoteDataSource.getTrending();
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
+  }
+  
+
+
+  @override
+  Future<Either<Failure, MovieDetailEntity>> getMoviesDetails(int movieId) async{
+    try {
+      final response = await remoteDataSource.getMoviesDetails(movieId);
       return Right(response);
     } on ServerExceptions {
       return Left(ServerFailure());

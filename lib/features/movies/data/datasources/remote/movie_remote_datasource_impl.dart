@@ -1,3 +1,5 @@
+import 'package:moviex/features/movies/data/model/movies_details_dto.dart';
+
 import '../../../../../core/api/api_const.dart';
 import '../../../../../core/config/baseapi.dart';
 import '../../model/movie_result.dart';
@@ -41,10 +43,19 @@ class MoviesRemoteDataSourceImp extends BaseApi
       'api_key': api_key,
     });
     print(data['results']);
-    var a = MoviesResultDto.fromJson(data).movies;
-    return a;
+    return MoviesResultDto.fromJson(data).movies;
+  }
+
+  @override
+  Future<MovieDetailDto> getMoviesDetails(int movieId) async {
+    var data = await get('movie/$movieId', query: {
+      'api_key': api_key,
+    });
+    print(data['results']);
+    return MovieDetailDto.fromJson(data);
   }
 }
 
 
+// /movie/{movie_id}/similar
 // discover/movie
