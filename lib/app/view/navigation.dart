@@ -4,6 +4,7 @@ import 'package:moviex/core/shared/image_path.dart';
 
 import '../../core/utils/customs/customs_configs.dart';
 import '../../features/movies/presentation/views/movies.dart';
+import '../../features/search/presentation/views/search.dart';
 
 class NavController extends StatefulWidget {
   const NavController({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _NavControllerState extends State<NavController> {
         body: PageView(
           children: [
             Movies(),
-            Movies(),
+            SearchScreen(),
             Movies(),
           ],
           onPageChanged: onPageChanged,

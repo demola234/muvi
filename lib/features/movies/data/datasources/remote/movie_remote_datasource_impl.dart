@@ -1,4 +1,8 @@
+import 'package:moviex/features/movies/data/model/cast_dto.dart';
+import 'package:moviex/features/movies/data/model/cast_result.dart';
 import 'package:moviex/features/movies/data/model/movies_details_dto.dart';
+import 'package:moviex/features/movies/data/model/video_dto.dart';
+import 'package:moviex/features/movies/data/model/video_result.dart';
 
 import '../../../../../core/api/api_const.dart';
 import '../../../../../core/config/baseapi.dart';
@@ -51,11 +55,39 @@ class MoviesRemoteDataSourceImp extends BaseApi
     var data = await get('movie/$movieId', query: {
       'api_key': api_key,
     });
-    print(data['results']);
+    print(data);
     return MovieDetailDto.fromJson(data);
+  }
+
+  @override
+  Future<List<VideoDto>> getVideos(int movieId) async {
+    var data = await get('movie/$movieId/videos', query: {
+      'language': 'en-US',
+      'api_key': api_key,
+    });
+    return VideoResultDto.fromJson(data).videos;
+  }
+
+  @override
+  Future<List<CastDto>> getCast(int movieId) async {
+    var data = await get('movie/$movieId/credits', query: {
+      'language': 'en-US',
+      'api_key': api_key,
+    });
+    return CastCrewResultDto.fromJson(data).cast;
+  }
+
+  @override
+  Future<List<MovieDto>> getSimilar(int movieId) async {
+    var data = await get('movie/$movieId/similar', query: {
+      'language': 'en-US',
+      'api_key': api_key,
+    });
+    return MoviesResultDto.fromJson(data).movies;
   }
 }
 
 
 // /movie/{movie_id}/similar
 // discover/movie
+// movie/movie_id/videos

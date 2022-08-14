@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/api/api_const.dart';
@@ -19,7 +17,7 @@ class MoviesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        NavigationService().navigateToScreen(MovieDetailsScreen());
+        NavigationService().navigateToScreen(MovieDetailsScreen(movieId: l.id));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

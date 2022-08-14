@@ -5,10 +5,14 @@ import '../states/movies_detail_state.dart';
 
 class MoviesDetailsNotifier extends StateNotifier<MoviesDetailState> {
   final MovieRepository? _movieRepository;
+  final int moviesId;
 
   MoviesDetailsNotifier(
+    this.moviesId,
     this._movieRepository,
-  ) : super(const MoviesDetailState.initial());
+  ) : super(const MoviesDetailState.initial()) {
+    getMoviesDetails(moviesId);
+  }
 
   Future<void> getMoviesDetails(int moviesId) async {
     state = const MoviesDetailState.loading();
@@ -18,7 +22,8 @@ class MoviesDetailsNotifier extends StateNotifier<MoviesDetailState> {
     state = result.fold(
       (l) => MoviesDetailState.error(error: l),
       (r) {
-        return MoviesDetailState.empty(movies: r);
+        print("${r.backdropPath}");
+        return MoviesDetailState.loaded(movies: r);
       },
     );
   }

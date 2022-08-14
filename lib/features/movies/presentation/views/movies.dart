@@ -69,7 +69,8 @@ class Movies extends ConsumerWidget {
                             },
                           ),
                         ),
-                        loading: (_) => const CircularProgressIndicator(),
+                        loading: (_) =>
+                            Center(child: const CircularProgressIndicator()),
                       )),
               YMargin(20),
               Padding(
@@ -126,7 +127,8 @@ class Movies extends ConsumerWidget {
                                   ),
                                 ),
                               ),
-                              loading: (_) => const CircularProgressIndicator(),
+                              loading: (_) => Center(
+                                  child: const CircularProgressIndicator()),
                             )),
                   ],
                 ),
@@ -189,7 +191,8 @@ class Movies extends ConsumerWidget {
                                   ),
                                 ),
                               ),
-                              loading: (_) => const CircularProgressIndicator(),
+                              loading: (_) => Center(
+                                  child: const CircularProgressIndicator()),
                             )),
                   ],
                 ),
@@ -248,7 +251,9 @@ class Movies extends ConsumerWidget {
                                   ),
                                 ),
                               ),
-                              loading: (_) => const CircularProgressIndicator(),
+                              // error:  Text("Unable to Get Upcoming Movies"),
+                              loading: (_) => Center(
+                                  child: const CircularProgressIndicator()),
                             )),
                   ],
                 ),
@@ -258,20 +263,3 @@ class Movies extends ConsumerWidget {
         ));
   }
 }
-
-
-//  SliverList(
-//               delegate: SliverChildBuilderDelegate((context, index) {
-//                 return Column(
-//                   children: [
-//                     Text("Trending Now"),
-//                     ListView.builder(
-//                       itemCount: 2,
-//                       itemBuilder: (context, index) {
-//                         return Container();
-//                       },
-//                     )
-//                   ],
-//                 );
-//               }),
-//             )

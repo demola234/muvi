@@ -1,8 +1,10 @@
 import 'package:moviex/core/error/exceptions.dart';
+import 'package:moviex/features/movies/domain/entities/cast_entity.dart';
 import 'package:moviex/features/movies/domain/entities/movie_details_entity.dart';
 import 'package:moviex/features/movies/domain/entities/movies_result.dart';
 import 'package:moviex/core/error/failure.dart';
 import 'package:dartz/dartz.dart';
+import 'package:moviex/features/movies/domain/entities/video_details.dart';
 
 import '../../domain/repositories/movie_repository.dart';
 import '../datasources/remote/movies_remote_datasource.dart';
@@ -52,13 +54,46 @@ class MovieRepositoryImp implements MovieRepository {
       return Left(ServerFailure());
     }
   }
-  
-
 
   @override
-  Future<Either<Failure, MovieDetailEntity>> getMoviesDetails(int movieId) async{
+  Future<Either<Failure, MovieDetailEntity>> getMoviesDetails(
+      int movieId) async {
     try {
       final response = await remoteDataSource.getMoviesDetails(movieId);
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<VideoEntity>>> getVideos(int movieId) async {
+    try {
+      final response = await remoteDataSource.getVideos(movieId);
+      print(response);
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<CastEntity>>> getCast(int movieId) async {
+    try {
+      final response = await remoteDataSource.getCast(movieId);
+      print(response);
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<MovieEntity>>> getSimilarMovies(
+      int movieId) async {
+    try {
+      final response = await remoteDataSource.getSimilar(movieId);
+      print(response);
       return Right(response);
     } on ServerExceptions {
       return Left(ServerFailure());
