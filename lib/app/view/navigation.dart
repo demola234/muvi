@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:moviex/core/shared/image_path.dart';
 
 import '../../core/utils/customs/customs_configs.dart';
-import '../../features/movies/presentation/views/movies.dart';
-import '../../features/search/presentation/views/search.dart';
+import '../../features/movies/presentation/movies/views/movies.dart';
+import '../../features/movies/presentation/search/views/search_screen.dart';
 
 class NavController extends StatefulWidget {
   const NavController({Key? key}) : super(key: key);

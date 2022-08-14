@@ -22,4 +22,14 @@ abstract class MovieRepository {
   Future<Either<Failure, List<CastEntity>>> getCast(int movieId);
 
   Future<Either<Failure, List<MovieEntity>>> getSimilarMovies(int movieId);
+
+  Future<Either<Failure, List<MovieEntity>>> getSearchedMovies(String movies);
+
+  Future<Either<Failure, List<MovieEntity>>> getBookmarkedMovies();
+
+  Future<Either<Failure, void>> bookmarkMovie(MovieEntity movieEntity);
+
+  Future<Either<Failure, void>> deleteBookmarkedMovie(int movieId);
+
+  Future<Either<Failure, bool>> checkIfMovieBookmarked(int movieId);
 }

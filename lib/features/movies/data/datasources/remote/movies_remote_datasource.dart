@@ -20,4 +20,6 @@ abstract class MoviesRemoteDataSource {
   Future<List<CastDto>> getCast(int movieId);
 
   Future<List<MovieDto>> getSimilar(int movieId);
+
+    Future<List<MovieDto>> getSearched(String movieId);
 }

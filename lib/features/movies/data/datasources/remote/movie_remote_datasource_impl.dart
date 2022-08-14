@@ -85,9 +85,18 @@ class MoviesRemoteDataSourceImp extends BaseApi
     });
     return MoviesResultDto.fromJson(data).movies;
   }
+  
+  @override
+  Future<List<MovieDto>> getSearched(String searchedMovie) async {
+    var data = await get('search/movie', query: {'query': searchedMovie,
+      'language': 'en-US',
+      'api_key': api_key,
+    });
+    return MoviesResultDto.fromJson(data).movies;
+  }
 }
 
-
+// 'search/movie', params: {'query': searchTerm}
 // /movie/{movie_id}/similar
 // discover/movie
 // movie/movie_id/videos

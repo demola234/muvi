@@ -99,4 +99,40 @@ class MovieRepositoryImp implements MovieRepository {
       return Left(ServerFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, List<MovieEntity>>> getSearchedMovies(
+      String movies) async {
+    try {
+      final response = await remoteDataSource.getSearched(movies);
+      print(response);
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
+  }
+  
+  @override
+  Future<Either<Failure, void>> bookmarkMovie(MovieEntity movieEntity) {
+    // TODO: implement bookmarkMovie
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, bool>> checkIfMovieBookmarked(int movieId) {
+    // TODO: implement checkIfMovieBookmarked
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, void>> deleteBookmarkedMovie(int movieId) {
+    // TODO: implement deleteBookmarkedMovie
+    throw UnimplementedError();
+  }
+  
+  @override
+  Future<Either<Failure, List<MovieEntity>>> getBookmarkedMovies() {
+    // TODO: implement getBookmarkedMovies
+    throw UnimplementedError();
+  }
 }
