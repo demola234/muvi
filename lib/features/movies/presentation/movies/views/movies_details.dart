@@ -1,4 +1,5 @@
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:moviex/features/movies/domain/entities/movies_result.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,6 +9,7 @@ import 'package:moviex/core/utils/customs/customs_configs.dart';
 import 'package:moviex/core/utils/navigator/navigation_services.dart';
 
 import '../../../../../core/api/api_const.dart';
+import '../../bookmark/controller/provider/bookmark_provider.dart';
 import '../controllers/providers/movies_provider.dart';
 import '../controllers/states/cast_state.dart';
 import '../controllers/states/movie_similar_state.dart';
@@ -25,6 +27,7 @@ class MovieDetailsScreen extends ConsumerStatefulWidget {
 class _MovieDetailsScreenState extends ConsumerState<MovieDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    //  final loginState = ref.watch(movieBookmark());
     return Scaffold(
       backgroundColor: Color(0xFF26272B),
       body: CustomScrollView(
@@ -151,14 +154,67 @@ class _MovieDetailsScreenState extends ConsumerState<MovieDetailsScreen> {
                     colorText: Color(0xFF292D32),
                   ),
                   Spacer(),
-                  Buttons(
-                    assetName: MuviAssets.plus,
-                    onTap: () {},
-                    text: "My List",
-                    color: Colors.transparent,
-                    colorText: Color(0xFFACACAC),
-                    border: Border.all(color: Color(0xFFACACAC)),
-                  ),
+                  ref
+                      .watch<MoviesDetailState>(
+                          movieDetailsNotifier(widget.movieId))
+                      .when(
+                        empty: (e) => Buttons(
+                          assetName: MuviAssets.plus,
+                          onTap: () {},
+                          text: "My List",
+                          color: Colors.transparent,
+                          colorText: Color(0xFFACACAC),
+                          border: Border.all(color: Color(0xFFACACAC)),
+                        ),
+                        error: (error) => Buttons(
+                          assetName: MuviAssets.plus,
+                          onTap: () {},
+                          text: "My List",
+                          color: Colors.transparent,
+                          colorText: Color(0xFFACACAC),
+                          border: Border.all(color: Color(0xFFACACAC)),
+                        ),
+                        loaded: (l) => Buttons(
+                          assetName: MuviAssets.plus,
+                          onTap: () {
+                            MovieEntity movieEntity = MovieEntity(
+                                id: widget.movieId,
+                                title: l.title,
+                                voteAverage: l.voteAverage,
+                                backdropPath: l.backdropPath,
+                                overview: l.overview!,
+                                releaseDate: l.releaseDate,
+                                posterPath: l.posterPath);
+                            print(movieEntity);
+                            ref
+                                .watch(movieBookmark(movieEntity).notifier)
+                                .addMovieToBookmark(movieEntity: movieEntity);
+                            ref
+                                .refresh(checkBookmarked.notifier)
+                                .checkBookmarked(moviesId: widget.movieId);
+                          },
+                          text: "My List",
+                          color: Colors.transparent,
+                          colorText: Color(0xFFACACAC),
+                          border: Border.all(color: Color(0xFFACACAC)),
+                        ),
+                        loading: () => Buttons(
+                          assetName: MuviAssets.plus,
+                          onTap: () {},
+                          text: "My List",
+                          color: Colors.transparent,
+                          colorText: Color(0xFFACACAC),
+                          border: Border.all(color: Color(0xFFACACAC)),
+                        ),
+                        initial: () => Buttons(
+                          assetName: MuviAssets.plus,
+                          onTap: () {},
+                          text: "My List",
+                          color: Colors.transparent,
+                          colorText: Color(0xFFACACAC),
+                          border: Border.all(color: Color(0xFFACACAC)),
+                        ),
+                      )
                 ],
               ),
             ),

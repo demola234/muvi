@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:moviex/features/movies/data/datasources/local/movie_local_datasource.dart';
+import 'package:moviex/features/movies/data/datasources/local/movie_local_datasource_impl.dart';
 import '../../features/movies/data/datasources/remote/movie_remote_datasource_impl.dart';
 import '../../features/movies/data/datasources/remote/movies_remote_datasource.dart';
 import '../../features/movies/data/repositories/movie_repository_impl.dart';
@@ -12,11 +14,14 @@ final sl = GetIt.I;
 
 Future injector() async {
   //Repository
-  sl.registerLazySingleton<MovieRepository>(() => MovieRepositoryImp(sl()));
+  sl.registerLazySingleton<MovieRepository>(
+      () => MovieRepositoryImp(sl(), sl()));
 
   //DataSources
   sl.registerLazySingleton<MoviesRemoteDataSource>(
       () => MoviesRemoteDataSourceImp());
+  sl.registerLazySingleton<MoviesLocalDataSource>(
+      () => MoviesLocalDataSourceImpl());
 
   ///Usecases
   sl.registerLazySingleton(() => FetchAllPlayNowMovie(sl()));

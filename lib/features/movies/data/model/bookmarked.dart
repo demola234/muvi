@@ -15,23 +15,26 @@ class Bookmarked extends MovieEntity {
   @HiveField(2)
   final String posterPath;
 
+  @HiveField(3)
+  final String overview;
+
   Bookmarked({
     required this.id,
     required this.title,
     required this.posterPath,
+    required this.overview,
   }) : super(
             id: id,
             title: title,
             posterPath: posterPath,
-            backdropPath: '',
-            releaseDate: '',
             voteAverage: 0,
-            overview: '');
+            overview: overview);
 
   factory Bookmarked.fromMovieEntity(MovieEntity movieEntity) {
     return Bookmarked(
       id: movieEntity.id,
       title: movieEntity.title,
+      overview: movieEntity.overview,
       posterPath: movieEntity.posterPath,
     );
   }

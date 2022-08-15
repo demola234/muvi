@@ -7,7 +7,6 @@ environment:
   sdk: ">=2.17.0 <3.0.0"
 
 dependencies:
-  antdesign_icons: ^0.0.3
   bloc: ^8.0.3
   cached_network_image: ^3.2.1
   custom_navigation_bar: ^0.8.2
@@ -31,6 +30,7 @@ dependencies:
   http_parser: ^4.0.1
   intl: ^0.17.0
   json_annotation: ^4.6.0
+  path_provider: ^2.0.11
   persistent_bottom_nav_bar: ^4.0.2
   pretty_dio_logger: ^1.1.1
   riverpod: ^1.0.3
@@ -46,8 +46,8 @@ dev_dependencies:
     sdk: flutter
   freezed: ^2.1.0+1
   freezed_annotation: ^2.1.0
-  json_serializable: ^6.3.1
   hive_generator: any
+  json_serializable: ^6.3.1
   mockito: any
   mocktail: ^0.3.0
   very_good_analysis: ^3.0.0

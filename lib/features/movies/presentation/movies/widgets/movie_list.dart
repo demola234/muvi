@@ -4,6 +4,7 @@ import '../../../../../core/api/api_const.dart';
 import '../../../../../core/utils/customs/customs_configs.dart';
 import '../../../../../core/utils/navigator/navigation_services.dart';
 import '../../../domain/entities/movies_result.dart';
+
 import '../views/movies_details.dart';
 
 class MoviesList extends StatelessWidget {
@@ -48,7 +49,7 @@ class MoviesList extends StatelessWidget {
             Container(
               width: 130,
               child: Text(
-                l.overview!,
+                l.overview,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Config.b3(context)

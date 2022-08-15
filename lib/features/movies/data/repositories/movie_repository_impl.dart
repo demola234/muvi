@@ -1,4 +1,5 @@
 import 'package:moviex/core/error/exceptions.dart';
+import 'package:moviex/features/movies/data/datasources/local/movie_local_datasource.dart';
 import 'package:moviex/features/movies/domain/entities/cast_entity.dart';
 import 'package:moviex/features/movies/domain/entities/movie_details_entity.dart';
 import 'package:moviex/features/movies/domain/entities/movies_result.dart';
@@ -8,11 +9,13 @@ import 'package:moviex/features/movies/domain/entities/video_details.dart';
 
 import '../../domain/repositories/movie_repository.dart';
 import '../datasources/remote/movies_remote_datasource.dart';
+import '../model/bookmarked.dart';
 
 class MovieRepositoryImp implements MovieRepository {
   final MoviesRemoteDataSource remoteDataSource;
+  final MoviesLocalDataSource localDataSource;
 
-  MovieRepositoryImp(this.remoteDataSource);
+  MovieRepositoryImp(this.remoteDataSource, this.localDataSource);
 
   @override
   Future<Either<Failure, List<MovieEntity>>> getAllNowPlayingMovies(
@@ -111,28 +114,49 @@ class MovieRepositoryImp implements MovieRepository {
       return Left(ServerFailure());
     }
   }
-  
+
   @override
-  Future<Either<Failure, void>> bookmarkMovie(MovieEntity movieEntity) {
-    // TODO: implement bookmarkMovie
-    throw UnimplementedError();
+  Future<Either<Failure, void>> bookmarkMovie(MovieEntity movieEntity) async {
+    try {
+      final table = Bookmarked.fromMovieEntity(movieEntity);
+      print(table);
+      final response = await localDataSource
+          .bookMovie(Bookmarked.fromMovieEntity(movieEntity));
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
   }
-  
+
   @override
-  Future<Either<Failure, bool>> checkIfMovieBookmarked(int movieId) {
-    // TODO: implement checkIfMovieBookmarked
-    throw UnimplementedError();
+  Future<Either<Failure, bool>> checkIfMovieBookmarked(int movieId) async {
+    try {
+      final response = await localDataSource.checkIfMovieBookmarked(movieId);
+      print(response);
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
   }
-  
+
   @override
-  Future<Either<Failure, void>> deleteBookmarkedMovie(int movieId) {
-    // TODO: implement deleteBookmarkedMovie
-    throw UnimplementedError();
+  Future<Either<Failure, void>> deleteBookmarkedMovie(int movieId) async {
+    try {
+      final response = await localDataSource.deleteBookmarkedMovie(movieId);
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
   }
-  
+
   @override
-  Future<Either<Failure, List<MovieEntity>>> getBookmarkedMovies() {
-    // TODO: implement getBookmarkedMovies
-    throw UnimplementedError();
+  Future<Either<Failure, List<MovieEntity>>> getBookmarkedMovies() async {
+    try {
+      final response = await localDataSource.getBookmarkedMovies();
+      print(response);
+      return Right(response);
+    } on ServerExceptions {
+      return Left(ServerFailure());
+    }
   }
 }

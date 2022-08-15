@@ -20,19 +20,22 @@ class BookmarkedAdapter extends TypeAdapter<Bookmarked> {
       id: fields[0] as int,
       title: fields[1] as String,
       posterPath: fields[2] as String,
+      overview: fields[3] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, Bookmarked obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
       ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.posterPath);
+      ..write(obj.posterPath)
+      ..writeByte(3)
+      ..write(obj.overview);
   }
 
   @override

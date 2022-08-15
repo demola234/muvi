@@ -2,6 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moviex/core/di/di.dart';
 import 'package:moviex/features/movies/domain/repositories/movie_repository.dart';
 
+import '../../../../domain/entities/movies_result.dart';
+import '../notifiers/add_movie_to_bookmark.notifier.dart';
+import '../notifiers/check_movie_added_to_list.dart';
 import '../notifiers/movie_all_now_playing_notifier.dart';
 import '../notifiers/movie_cast.dart';
 import '../notifiers/movie_similar.dart';
@@ -10,7 +13,9 @@ import '../notifiers/movies_all_popular_notifier.dart';
 import '../notifiers/movies_detail_notifier.dart';
 import '../notifiers/movies_trending_notifier.dart';
 import '../notifiers/movies_video_notifier.dart';
+import '../states/add_bookmark_state.dart';
 import '../states/cast_state.dart';
+import '../states/check_bookmark_state.dart';
 import '../states/movie_similar_state.dart';
 import '../states/movie_state.dart';
 import '../states/movies_detail_state.dart';
@@ -59,4 +64,14 @@ final movieCastNotifier =
 final movieSimilarNotifier =
     StateNotifierProvider.family<MovieSimilarNotifier, MovieSimilarState, int>(
   (ref, s) => MovieSimilarNotifier(movieRepository, s),
+);
+
+final movieBookmark = StateNotifierProvider.family<AddMovieToBookmark,
+    AddBookmarkState, MovieEntity>(
+  (ref, s) => AddMovieToBookmark(movieRepository, s),
+);
+
+final checkBookmarked =
+    StateNotifierProvider.autoDispose<CheckBookmarked, CheckMovieState>(
+  (ref) => CheckBookmarked(movieRepository),
 );

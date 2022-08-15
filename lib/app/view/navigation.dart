@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:moviex/core/shared/image_path.dart';
 
 import '../../core/utils/customs/customs_configs.dart';
+import '../../features/movies/presentation/bookmark/views/bookmark.dart';
 import '../../features/movies/presentation/movies/views/movies.dart';
 import '../../features/movies/presentation/search/views/search_screen.dart';
 
@@ -41,7 +42,7 @@ class _NavControllerState extends State<NavController> {
           children: [
             Movies(),
             SearchScreen(),
-            Movies(),
+            MyWidget(),
           ],
           onPageChanged: onPageChanged,
           controller: pageController,

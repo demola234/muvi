@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 class MovieEntity extends Equatable {
   final int id;
   final String title;
-  final String? overview;
+  final String overview;
   final String? releaseDate;
   final num? voteAverage;
   final String? backdropPath;
@@ -13,9 +13,9 @@ class MovieEntity extends Equatable {
     required this.id,
     required this.title,
     required this.overview,
-    required this.releaseDate,
+    this.releaseDate,
     required this.voteAverage,
-    required this.backdropPath,
+    this.backdropPath,
     required this.posterPath,
   });
 
