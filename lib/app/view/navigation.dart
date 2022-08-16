@@ -49,7 +49,7 @@ class _NavControllerState extends State<NavController> {
           physics: const NeverScrollableScrollPhysics(),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.white.withOpacity(0.2),
+          backgroundColor: Color(0xFF26272B),
           elevation: 0,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -68,7 +68,7 @@ class _NavControllerState extends State<NavController> {
               activeIcon: Column(
                 children: [
                   SvgPicture.asset(
-                    MuviAssets.video,
+                    MuviAssets.home,
                     height: 20,
                     width: 20,
                     allowDrawingOutsideViewBox: true,
@@ -119,7 +119,7 @@ class _NavControllerState extends State<NavController> {
             BottomNavigationBarItem(
               icon: Column(
                 children: [
-                  SvgPicture.asset(MuviAssets.shape,
+                  SvgPicture.asset(MuviAssets.ticket,
                       height: 20,
                       width: 20,
                       allowDrawingOutsideViewBox: true,
@@ -131,7 +131,7 @@ class _NavControllerState extends State<NavController> {
               tooltip: "Posts",
               activeIcon: Column(
                 children: [
-                  SvgPicture.asset(MuviAssets.shape,
+                  SvgPicture.asset(MuviAssets.ticket,
                       height: 20,
                       width: 20,
                       allowDrawingOutsideViewBox: true,

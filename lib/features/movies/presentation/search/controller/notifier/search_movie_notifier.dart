@@ -23,7 +23,7 @@ class SearchMovie extends StateNotifier<SearchMoviesState> {
       (l) => SearchMoviesState.error(error: l),
       (r) {
         if (r.isEmpty) return const SearchMoviesState.empty(movies: []);
-        print("Hello ${r[0].title}");
+        print("Hello ${r[0].overview}");
         SearchMoviesState.loaded(movies: r);
       },
     );

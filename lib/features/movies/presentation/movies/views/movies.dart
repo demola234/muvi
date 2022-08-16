@@ -16,7 +16,7 @@ class Movies extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // final movies = ref.watch(movieNotifierProvider);
     return Scaffold(
-        backgroundColor: Color(0xFF1C1C1C),
+        backgroundColor: Color(0xFF26272B),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,

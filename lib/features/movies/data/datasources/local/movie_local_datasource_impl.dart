@@ -12,7 +12,11 @@ class MoviesLocalDataSourceImpl implements MoviesLocalDataSource {
   @override
   Future<bool> checkIfMovieBookmarked(int movieId) async {
     final movieBox = await Hive.openBox('movieBox');
-    return movieBox.containsKey(movieId);
+    if (movieBox.containsKey(movieId)) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
