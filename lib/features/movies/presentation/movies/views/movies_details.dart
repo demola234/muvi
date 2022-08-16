@@ -9,7 +9,6 @@ import 'package:moviex/core/utils/customs/customs_configs.dart';
 import 'package:moviex/core/utils/navigator/navigation_services.dart';
 
 import '../../../../../core/api/api_const.dart';
-import '../../bookmark/controller/provider/bookmark_provider.dart';
 import '../controllers/providers/movies_provider.dart';
 import '../controllers/states/cast_state.dart';
 import '../controllers/states/movie_similar_state.dart';
@@ -181,7 +180,7 @@ class _MovieDetailsScreenState extends ConsumerState<MovieDetailsScreen> {
                                 id: widget.movieId,
                                 title: l.title,
                                 voteAverage: l.voteAverage,
-                                backdropPath: l.backdropPath,
+                                backdropPath: l.backdropPath!,
                                 overview: l.overview!,
                                 releaseDate: l.releaseDate,
                                 posterPath: l.posterPath);
@@ -190,7 +189,7 @@ class _MovieDetailsScreenState extends ConsumerState<MovieDetailsScreen> {
                                 .watch(movieBookmark(movieEntity).notifier)
                                 .addMovieToBookmark(movieEntity: movieEntity);
                             ref
-                                .refresh(checkBookmarked.notifier)
+                                .watch(checkBookmarked.notifier)
                                 .checkBookmarked(moviesId: widget.movieId);
                           },
                           text: "My List",

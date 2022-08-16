@@ -28,7 +28,7 @@ class MovieHeader extends StatelessWidget {
               child: Image(
                 fit: BoxFit.cover,
                 image:
-                    NetworkImage(ApiConstants.BASE_IMAGE_URL + l.backdropPath!),
+                    NetworkImage(ApiConstants.BASE_IMAGE_URL + l.backdropPath),
               )),
           Positioned.fill(
               bottom: 0,

@@ -10,7 +10,7 @@ class CheckBookmarked extends StateNotifier<CheckMovieState> {
     this._movieRepository,
   ) : super(const CheckMovieState.initial());
 
-  Future<void> checkBookmarked({required int moviesId}) async {
+  Future checkBookmarked({required int moviesId}) async {
     state = const CheckMovieState.loading();
 
     var result = await _movieRepository!.checkIfMovieBookmarked(moviesId);

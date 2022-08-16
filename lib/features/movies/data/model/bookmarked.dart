@@ -28,13 +28,15 @@ class Bookmarked extends MovieEntity {
             title: title,
             posterPath: posterPath,
             voteAverage: 0,
+            releaseDate: "",
+            backdropPath: "",
             overview: overview);
 
   factory Bookmarked.fromMovieEntity(MovieEntity movieEntity) {
     return Bookmarked(
       id: movieEntity.id,
       title: movieEntity.title,
-      overview: movieEntity.overview,
+      overview: movieEntity.overview!,
       posterPath: movieEntity.posterPath,
     );
   }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -108,23 +109,17 @@ class _MyWidgetState extends ConsumerState<MyWidget> {
                                                             child: Row(
                                                               children: [
                                                                 Container(
-                                                                  height: 120,
-                                                                  width: 80,
-                                                                  child: Image(
-                                                                    fit: BoxFit
-                                                                        .contain,
-                                                                    colorBlendMode:
-                                                                        BlendMode
-                                                                            .color,
-                                                                    image:
-                                                                        NetworkImage(
-                                                                      ApiConstants
+                                                                    height: 120,
+                                                                    width: 80,
+                                                                    child:
+                                                                        CachedNetworkImage(
+                                                                      fit: BoxFit
+                                                                          .cover,
+                                                                      imageUrl: ApiConstants
                                                                               .BASE_IMAGE_URL +
                                                                           l.movies[index]
                                                                               .posterPath,
-                                                                    ),
-                                                                  ),
-                                                                ),
+                                                                    )),
                                                                 XMargin(10),
                                                                 Column(
                                                                   mainAxisAlignment:
@@ -150,7 +145,7 @@ class _MyWidgetState extends ConsumerState<MyWidget> {
                                                                         child:
                                                                             Text(
                                                                           l.movies[index]
-                                                                              .overview,
+                                                                              .overview!,
                                                                           maxLines:
                                                                               1,
                                                                           overflow:
@@ -208,4 +203,5 @@ class _MyWidgetState extends ConsumerState<MyWidget> {
       ),
     );
   }
+
 }

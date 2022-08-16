@@ -33,7 +33,7 @@ class MoviesList extends StatelessWidget {
                 child: Image(
                   fit: BoxFit.cover,
                   image: NetworkImage(
-                      ApiConstants.BASE_IMAGE_URL + l.backdropPath!),
+                      ApiConstants.BASE_IMAGE_URL + l.backdropPath),
                 )),
             YMargin(5),
             Container(
@@ -49,7 +49,7 @@ class MoviesList extends StatelessWidget {
             Container(
               width: 130,
               child: Text(
-                l.overview,
+                l.overview!,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: Config.b3(context)
