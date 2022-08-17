@@ -20,12 +20,12 @@ Please Star💫 This Repository!
 
 <img src="https://github.com/demola234/muvi/blob/main/screenshots/Logo.png?raw=true" height="300"/>
 
-| 💮 ScreenShots                                                                                         | 💮ScreenShots                                                                                          |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/st.gif" width="400"> | <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/md.gif" width="400"> |
-| <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/ed.gif" width="400"> | <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/1.jpg" width="400">  |
-| <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/2.jpg" width="400">  | <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/3.jpg" width="400">  |
-| <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/4.jpg" width="400">  | <img src="https://raw.githubusercontent.com/demola234/DidiChat/master/ScreenShots/5.jpg" width="400">  |
+| 💮 ScreenShots                                                                                        | 💮ScreenShots                                                                                         |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| <img src="https://github.com/demola234/muvi/blob/main/screenshots/Splash-1.png?raw=true" width="400"> | <img src="https://github.com/demola234/muvi/blob/main/screenshots/Splash-3.png?raw=true" width="400"> |
+| <img src="https://github.com/demola234/muvi/blob/main/screenshots/Splash-1.png?raw=true" width="400"> | <img src="https://github.com/demola234/muvi/blob/main/screenshots/Splash-4.png?raw=true" width="400"> |
+
+| <img src="https://github.com/demola234/muvi/blob/main/screenshots/Splash-5.png?raw=true" width="400">
 
 ## 🧒🏾 Author
 
